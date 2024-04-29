@@ -46,8 +46,8 @@ class CPF_Validator {
 let validateCPF = new CPF_Validator('499.518.298-56');
 console.log(validateCPF.validate());
 
-if(validateCPF.validate()){
-    console.log('CPF Valid, Ok');
-} else{
-    console.log('CPF Falided');
+if (validateCPF.validate()){
+    console.log('CPF Valido');
+}else{
+    console.log('Error')
 }
