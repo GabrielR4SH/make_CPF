@@ -24,8 +24,6 @@ class CPF_Validator {
         let reverse = nodigitsCPF.length + 1;
 
         for(let stringNumber of nodigitsCPF){
-            //console.log(stringNumber, typeof stringNumber);
-            console.log(stringNumber, reverse);
             total += reverse * Number(stringNumber);
             reverse--;
         }
@@ -39,12 +37,17 @@ class CPF_Validator {
         if (typeof this.cpfClean !== 'string') return false;
         if (this.cpfClean.length !== 11) return false;
         if (this.squency()) return false;
-        if(!this.generateNewCPF()) return false;
         
-        console.log(this.newCPF);
-        return 'Done'
+        this.generateNewCPF();
+        return this.newCPF === this.cpfClean;
     }
 }
 
 let validateCPF = new CPF_Validator('499.518.298-56');
 console.log(validateCPF.validate());
+
+if(validateCPF.validate()){
+    console.log('CPF Valid, Ok');
+} else{
+    console.log('CPF Falided');
+}
